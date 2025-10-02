@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - cpugaper</title>
+    <title>Carla Puga</title>
     <style>
         * {
             margin: 0;
@@ -310,6 +310,7 @@
             transition: all 0.4s ease;
             padding: 2rem;
             box-sizing: border-box;
+            z-index: 3;
         }
 
         .project-card:hover .project-info-wrapper {
@@ -696,70 +697,205 @@
             object-fit: contain;
         }
 
-        @media (max-width: 768px) {
-            .home-content h1 {
-                font-size: 2.5rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-
-            .project-nav-item {
-                display: block;
-                margin: 1rem 0;
+        
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
             }
             
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
+            .project-card {
+                height: 320px;
+            }
+            
+            .project-img {
+                height: 200px;
+            }
+            
+            .project-info-bar {
+                bottom: 120px;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .project-info {
+                height: 120px;
+                padding: 1rem;
+            }
+        }
+        
+ 
+        @media (max-width: 768px) {
+            #projects {
+                padding-top: 80px;
+            }
+            
+            #projects h2 {
+                font-size: 2.2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .project-card {
+                height: 350px;
+                min-height: 350px;
+            }
+
+            .project-img {
+                height: 350px;
+            }
+            
+            .project-info {
+                height: 110px;
+                min-height: 110px;
                 padding: 1.5rem;
             }
             
-            .modal-img {
-                height: 200px;
-            }
-
-            .social-icons {
+            .project-info-bar {
+                position: absolute;
+                bottom: 110px; 
+                left: 0;
+                width: 100%;
+                background: rgba(30, 30, 30, 0.8);
+                padding: 0.5rem 1rem;
+                display: flex;
+                align-items: center;
                 gap: 1rem;
+                z-index: 2;
+                backdrop-filter: blur(5px);
             }
-
-            .social-icon {
-                font-size: 1.8rem;
+            
+            .info-item {
+                font-size: 0.8rem;
+                flex: 1;
+                min-width: 70px;
+                justify-content: center;
             }
-
-            .about-container {
-                padding: 2rem;
+            
+            .project-info h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0.5rem;
             }
-
-            .project-card {
-                height: auto;
+            
+            .project-info p {
+                font-size: 0.95rem;
+                line-height: 1.5;
             }
 
             .project-info-wrapper {
-                position: relative;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 120%;
+                background: rgba(42, 42, 42, 0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: all 0.4s ease;
+                padding: 2rem;
+                box-sizing: border-box;
+                z-index: 3;
+            }
+
+            .project-card.active .project-info-wrapper {
                 opacity: 1;
-                transform: none;
-                background: transparent;
+                transform: translateY(-30px);
+            }
+
+            .project-info-content {
+                text-align: center;
+                margin-top: -70px;
+            }
+
+            .project-info-content h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                color: #f0e6d2;
+            }
+
+            .project-info-content p {
+                color: #d4b483;
+                font-size: 1rem;
+            }
+            
+            .project-card:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #projects h2 {
+                font-size: 1.8rem;
+            }
+            
+            .project-info-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .project-info-content p {
+                font-size: 0.9rem;
+            }
+
+            .project-info-bar {
+                bottom: 100px; 
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .project-card {
+                height: 320px;
+                min-height: 320px;
+            }
+
+            .project-img {
+                height: 320px;
+            }
+            
+            .project-info {
+                height: 100px;
+                min-height: 100px;
                 padding: 1rem;
             }
 
-            .project-card:hover .project-img,
-            .project-card:hover .project-info {
-                transform: none;
+            .info-item {
+                font-size: 0.75rem;
+                min-width: 60px;
             }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1rem;
+            
+            .project-info h3 {
+                font-size: 1.3rem;
             }
-
-            .skill-icon {
-                font-size: 1.5rem;
+            
+            .project-info p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .project-card {
+                min-height: 320px;
+            }
+            
+            .project-img {
+                height: 180px;
+            }
+            
+            .project-info-bar {
+                padding: 0.3rem 0.6rem;
+            }
+            
+            .info-item {
+                font-size: 0.7rem;
+                min-width: 50px;
+            }
+            
+            .project-info {
+                padding: 0.8rem;
             }
         }
 
@@ -979,7 +1115,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968543.png" alt="Substance Painter" class="skill-img" title="Substance Painter">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" class="skill-img" title="Photoshop">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" alt="Blender" class="skill-img" title="Blender">
-                        <img src="https://static.wikia.nocookie.net/arthur/images/e/ee/Harmony_5190_logo_1613984801_1uzri.png/revision/latest?cb=20240508144444" alt="Toon Boom Harmony" class="skill-img" title="Toon Boom Harmony">
+                        <img src="https://static.wikia.nocookie.net/arthur/images/e/ee/Harmony_5190_logo_1613984801_1uzri.png/revision/latest?cb=20240508144444.svg" alt="Toon Boom Harmony" class="skill-img" title="Toon Boom Harmony">
                         <img src="https://www.iamag.co/wp-content/uploads/2016/10/Procreate-Icon.png" alt="Procreate" class="skill-img" title="Procreate">
                     </div>
                 </div>
@@ -1258,11 +1394,47 @@
             modalContent.appendChild(responsibilitiesSection);
             modalContent.appendChild(githubLink);
 
+            if (window.innerWidth <= 768) {
+                infoContainer.style.gridTemplateColumns = '1fr';
+                infoContainer.style.gap = '1.5rem';
+
+                titleElement.style.fontSize = '1.6rem';
+                aboutTitle.style.fontSize = '1.4rem';
+                projectInfoTitle.style.fontSize = '1.4rem';
+                responsibilitiesTitle.style.fontSize = '1.4rem';
+   
+                aboutBox.style.padding = '1rem';
+                projectInfoBox.style.padding = '1rem';
+                
+                const closeBtn = modal.querySelector('.close');
+                closeBtn.style.fontSize = '24px';
+                closeBtn.style.padding = '10px';
+            }
+
             modalBody.innerHTML = '';
             modalBody.appendChild(modalContent);
   
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
+        }
+
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        }
+   
+        if (isTouchDevice()) {
+            document.body.classList.add('touch-device');
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                card.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
         }
 
         function closeModal() {
