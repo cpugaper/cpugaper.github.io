@@ -1314,6 +1314,38 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card" onclick="openModal('game3')">
+                    <div class="project-content">
+                        <div class="project-img">
+                            <video muted loop autoplay playsinline>
+                                <source src="videos/POETrailer.webm" type="video/webm">
+                            </video>
+                        </div>
+                        <div class="project-info-bar">
+                                <div class="info-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>3</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>1 month</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>C#</span>
+                                </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Patufet On Ets?</h3>
+                            <p>Educational game</p>
+                        </div>
+                        <div class="project-info-wrapper">
+                            <div class="project-info-content">
+                                <p>Click for more details</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1441,6 +1473,27 @@
                 ],
                 link: "https://github.com/didacpema/Alien-Cocktail/releases/tag/v2.0",
                 year: "05/05/2025 - 03/06/2025"
+            },
+            game3: {
+                title: "Patufet On Ets?",
+                image: "images/patufet.png",
+                description: "Patufet On Ets is an educational videogame created for 3cat's LUDI contest, targeting children aged 6 to 8.<BR><BR>You play as Patufet, a beloved character from Catalan folklore, and travel through thematic environments while solving mathematical challenges to continue your adventure.",
+                engine: "Unity",
+                programmingLanguage: "C#",
+                teamSize: "3",
+                duration: "1 month",
+                role: "Programmer",
+                tasks: [
+                    "Level 1 Phase 2 mechanics",
+                    "Mini game mechanics (including object art & particle effects)",
+                    "Player state machine",
+                    "Map mechanics",
+                    "Score logic",
+                    "UI implementation & visual assets",
+                    "Trailer"
+                ],
+                link: "https://adriaroger.itch.io/patufet-on-ets",
+                year: "30/09/2025 - 30/10/2025"
             }
         };
 
@@ -1569,6 +1622,8 @@
                 explanationText.textContent = 'I mainly worked in the enemy department, though I initially contributed to explosion physics, scripting documentation, and public variable visibility. In the enemies department, I led the enemy Tank development, implementing state machine iterations, animations, an alert-nearby-enemies system, berserk ability and indicator state. I enhanced general enemy systems including rotation, detection, and raycasting. Also contributed to bug-fixing and polishing their behavior. Working on this project has taught me the importance of teamwork and adaptability in a large team while also improving my problem-solving and interpersonal skills.';
             } else if (projectId === 'game2') {
                 explanationText.textContent = 'I primarily worked on core management systems, implementing the Scene Manager, Game Manager, and Client Manager, along with the UI Settings functionality. I also contributed to other areas when needed and received support from teammates on my systems.';
+            } else if (projectId === 'game3') {
+                explanationText.textContent = 'Working in a compact team of two programmers and one artist, I shared programming responsibilities with my teammate. While I focused primarily on the areas listed below, we both contributed to each other\'s code to implement features and improvements. Additionally, I created some visual assets when needed.';
             }
             
             const tasksList = document.createElement('ul');
@@ -1593,7 +1648,6 @@
             githubLink.style.fontSize = '1.1rem';
 
             const textBefore = document.createElement('span');
-            textBefore.textContent = 'Read more about ';
             textBefore.style.color = '#f0e6d2';
 
             const projectLink = document.createElement('a');
@@ -1626,8 +1680,15 @@
             });
 
             const textAfter = document.createElement('span');
-            textAfter.textContent = ' on GitHub';
             textAfter.style.color = '#f0e6d2';
+
+            if (projectId == 'game3') {
+                textBefore.textContent = 'Play ';
+                textAfter.textContent = 'on itch.io';
+            } else {
+                textBefore.textContent = 'Read more about ';
+                textAfter.textContent = ' on Github';
+            }
 
             githubLink.appendChild(textBefore);
             githubLink.appendChild(projectLink);
