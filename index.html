@@ -708,7 +708,7 @@
         }
 
         /* Estilos para el título animado */
-        @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&display=swap');
         
         .content {
             position: relative;
@@ -720,48 +720,21 @@
         }
         
         .content h2 {
-            font-size: 6.5em; 
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            font-size: 7em;
+            animation: fadeInUp 1.2s ease both;
+            font-family: 'Cinzel', serif;
             white-space: nowrap;
             margin: 0;
             text-align: center;
-        }
-        
-        .content h2:nth-child(1) {
-            color: transparent;
-            -webkit-text-stroke: 2px #f7efe5;
-        }
-        
-        .content h2:nth-child(2) {
-            color: #f7efe5;
-            animation: animate 4s ease-in-out infinite;
         }
 
         .simple-subtitle {
             font-size: 1.5rem;
             color: #d4b483;
             margin: 20px 0 80px 0;
-            animation: none !important; 
+            animation: fadeInUp 1.2s ease both;
             text-align: center;
-        }
-        
-        @keyframes animate {
-            0%, 100% {
-                clip-path: polygon(
-                    0% 45%, 16% 44%, 33% 50%, 
-                    54% 60%, 70% 61%, 84% 59%, 
-                    100% 52%, 100% 100%, 0% 100%
-                );
-            }
-            50% {
-                clip-path: polygon(
-                    0% 60%, 15% 65%, 34% 66%, 
-                    51% 62%, 67% 50%, 84% 45%, 
-                    100% 46%, 100% 100%, 0% 100%
-                );
-            }
+            font-style: italic;
         }
 
         /* Media Queries para Responsive Design */
@@ -1230,7 +1203,6 @@
 
             <section>
                 <div class="content">
-                    <h2>CARLA PUGA</h2>
                     <h2>CARLA PUGA</h2>
                 </div>
             </section>
