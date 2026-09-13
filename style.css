@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -630,11 +631,11 @@ nav a:hover {
 
 .content {
     position: relative;
-    height: 150px; 
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .content h2 {
@@ -647,12 +648,13 @@ nav a:hover {
 }
 
 .simple-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     color: #d4b483;
-    margin: 20px 0 80px 0;
+    margin: 0 0 80px 0;
     animation: fadeInUp 1.2s ease both;
     text-align: center;
     font-style: italic;
+    width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -670,11 +672,14 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-    nav ul { gap: 1rem; padding: 0 1rem; }
+    nav { flex-wrap: wrap; justify-content: space-between; padding: 0.6rem 1rem; }
+    .nav-brand { order: 1; }
+    .cv-nav-btn { order: 2; }
+    nav ul { width: 100%; order: 3; display: flex; justify-content: center; gap: 1rem; padding-top: 0.6rem; margin-top: 0.6rem; border-top: 1px solid rgba(212, 180, 131, 0.15); }
     nav a { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
     .section { padding: 70px 1rem 1rem; }
     .container { padding: 0 1rem; }
-    #home { min-height: 90vh; padding: 70px 1rem 1rem; }
+    #home { min-height: 90vh; padding: 130px 1rem 1rem; }
     .home-content { min-height: 70vh; }
     .content { height: 120px; margin-bottom: 15px; }
     .content h2 { font-size: 3.5em; }
@@ -684,14 +689,39 @@ nav a:hover {
     #projects { padding-top: 80px; }
     #projects h2 { font-size: 2.2rem; margin-bottom: 1.5rem; }
     .projects-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-    .project-card { height: 350px; min-height: 350px; }
+    .project-card { height: auto; min-height: 350px; }
     .project-img { height: 350px; }
-    .project-info { height: 110px; min-height: 110px; padding: 1.5rem; }
-    .project-info-bar { bottom: 110px; left: 0; width: 100%; background: rgba(30, 30, 30, 0.8); padding: 0.5rem 1rem; display: flex; align-items: center; gap: 1rem; z-index: 2; backdrop-filter: blur(5px); }
+    .project-info-bar { bottom: auto; top: 350px; transform: translateY(-100%); left: 0; width: 100%; background: rgba(30, 30, 30, 0.8); padding: 0.5rem 1rem; display: flex; align-items: center; gap: 1rem; z-index: 2; backdrop-filter: blur(5px); }
     .info-item { font-size: 0.8rem; flex: 1; min-width: 70px; justify-content: center; }
     .project-info h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     .project-info p { font-size: 0.95rem; line-height: 1.5; }
-    .project-info-wrapper { height: 120px; }
+    .project-info { height: auto; min-height: 120px; padding: 1rem 1rem 45px 1rem; }
+    .project-info-wrapper {
+        position: absolute;  
+        top: auto;           
+        bottom: 0;           
+        height: 30px;       
+        width: 100%;        
+        background: #1e1e1e; 
+        border-top: 1px solid #3a3a3a;
+        opacity: 1; 
+        transform: none !important; 
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .project-info-content { margin-top: 0; }
+    
+    .project-info-content p {
+        font-size: 0.7rem;
+        color: #d4b483;
+        opacity: 0.6; 
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
     #about { padding: 80px 1rem; }
     .about-container { padding: 1.5rem; }
     .about-text h2 { font-size: 2rem; }
@@ -708,6 +738,9 @@ nav a:hover {
     .social-icon { font-size: 1.7rem; }
     .modal-content { width: 90%; padding: 1.5rem; margin: 10% auto; }
     .modal-img { height: 300px; }
+    .simple-subtitle {
+        font-size: 1rem !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -719,10 +752,10 @@ nav a:hover {
     #scroll-down { bottom: 20px; padding-top: 25px; }
     #scroll-down::before { height: 25px; }
     #projects h2 { font-size: 1.8rem; }
-    .project-info-bar { bottom: 100px; padding: 0.4rem 0.8rem; }
-    .project-card { height: 320px; min-height: 320px; }
+    .project-info-bar { bottom: auto; top: 320px; transform: translateY(-100%); padding: 0.4rem 0.8rem; }
+    .project-card { height: auto; min-height: 320px; }
     .project-img { height: 320px; }
-    .project-info { height: 100px; min-height: 100px; padding: 1rem; }
+    .project-info { height: auto; min-height: 100px; padding: 1rem 1rem 45px 1rem; }
     .info-item { font-size: 0.75rem; min-width: 60px; }
     .project-info h3 { font-size: 1.3rem; }
     .project-info p { font-size: 0.9rem; }
@@ -738,11 +771,11 @@ nav a:hover {
 }
 
 @media (max-width: 360px) {
-    .project-card { min-height: 320px; }
+    .project-card { height: auto; min-height: 320px; }
     .project-img { height: 180px; }
-    .project-info-bar { padding: 0.3rem 0.6rem; }
+    .project-info-bar { bottom: auto; top: 180px; transform: translateY(-100%); padding: 0.3rem 0.6rem; }
     .info-item { font-size: 0.7rem; min-width: 50px; }
-    .project-info { padding: 0.8rem; }
+    .project-info { padding: 0.8rem 0.8rem 45px 0.8rem; }
     .content { height: 80px; }
     .content h2 { font-size: 2em; }
     .simple-subtitle { font-size: 0.9rem; margin: 8px 0 40px 0; }
