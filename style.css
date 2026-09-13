@@ -689,9 +689,9 @@ nav a:hover {
     #projects { padding-top: 80px; }
     #projects h2 { font-size: 2.2rem; margin-bottom: 1.5rem; }
     .projects-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
-    .project-card { height: auto; min-height: 350px; }
-    .project-img { height: 350px; }
-    .project-info-bar { bottom: auto; top: 350px; transform: translateY(-100%); left: 0; width: 100%; background: rgba(30, 30, 30, 0.8); padding: 0.5rem 1rem; display: flex; align-items: center; gap: 1rem; z-index: 2; backdrop-filter: blur(5px); }
+    .project-card { height: auto; min-height: 300px; }
+    .project-img { height: 300px; }
+    .project-info-bar { bottom: auto; top: 300px; transform: translateY(-100%); left: 0; width: 100%; background: rgba(30, 30, 30, 0.8); padding: 0.5rem 1rem; display: flex; align-items: center; gap: 1rem; z-index: 2; backdrop-filter: blur(5px); }
     .info-item { font-size: 0.8rem; flex: 1; min-width: 70px; justify-content: center; }
     .project-info h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
     .project-info p { font-size: 0.95rem; line-height: 1.5; }
@@ -752,9 +752,9 @@ nav a:hover {
     #scroll-down { bottom: 20px; padding-top: 25px; }
     #scroll-down::before { height: 25px; }
     #projects h2 { font-size: 1.8rem; }
-    .project-info-bar { bottom: auto; top: 320px; transform: translateY(-100%); padding: 0.4rem 0.8rem; }
-    .project-card { height: auto; min-height: 320px; }
-    .project-img { height: 320px; }
+    .project-info-bar { bottom: auto; top: 220px; transform: translateY(-100%); padding: 0.4rem 0.8rem; }
+    .project-card { height: auto; min-height: 220px; }
+    .project-img { height: 220px; }
     .project-info { height: auto; min-height: 100px; padding: 1rem 1rem 45px 1rem; }
     .info-item { font-size: 0.75rem; min-width: 60px; }
     .project-info h3 { font-size: 1.3rem; }
