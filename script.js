@@ -38,7 +38,9 @@ const projectData = {
             "Implemented 3D explosion physics",
             "Debugged and polished overall enemy behaviors"
         ],
-        link: "https://github.com/Burned-Games/W40K-TLM",
+        links: [
+            { text: "GitHub", url: "https://github.com/Burned-Games/W40K-TLM", icon: "fab fa-github" }
+        ],
         year: "2025"
     },
     game2: {
@@ -56,7 +58,9 @@ const projectData = {
             "Built Scene Manager to handle scene loading and transitions",
             "Developed settings UI interface and configuration logic"
         ],
-        link: "https://github.com/didacpema/Alien-Cocktail/releases/tag/v2.0",
+        links: [
+            { text: "GitHub", url: "https://github.com/didacpema/Alien-Cocktail/releases/tag/v2.0", icon: "fab fa-github" }
+        ],
         year: "2025"
     },
     game3: {
@@ -74,7 +78,9 @@ const projectData = {
             "Developed scoring system and an interactive map for level selection",
             "Implemented UI systems and created 2D assets, particle effects, and trailer"
         ],
-        link: "https://adriaroger.itch.io/patufet-on-ets",
+        links: [
+            { text: "Itch.io", url: "https://adriaroger.itch.io/patufet-on-ets", icon: "fa-brands fa-itch-io" }
+        ],
         year: "2025"
     },
     game4: {
@@ -92,8 +98,33 @@ const projectData = {
             "Built dynamic UI hub with body gender swapping, 360° camera controls, trait randomization, and genetic filters",
             "Authored developer guides detailing the Blender-to-UE5 and Mutable system pipeline for integrating new models"
         ],
-        link: "https://cpugaper.github.io/MetaGenWeb/index.html#home",
+        links: [
+            { text: "Website", url: "https://cpugaper.github.io/MetaGenWeb/index.html#home", icon: "fas fa-external-link-alt" }
+        ],
         year: "2025 - 2026"
+    },
+    game5: {
+        title: "Bouncy Bullets",
+        image: "images/bouncybulletsImg.png", 
+        description: "Arcade-inspired 2.5D space shooter developed to practice clean architecture and performance optimization in game development. Players control a ship, dodging and destroying diverse enemy waves in increasingly frenetic combat.", 
+        engine: "Unity",
+        programmingLanguage: "C#",
+        teamSize: "1",
+        duration: "2 months",
+        role: "Programmer & Designer",
+        tasks: [
+            "Implemented an Asset-based Observer Pattern using ScriptableObjects for decoupled event communication",
+            "Applied Object Pooling for enemies, bullets, explosions, and pickups",
+            "Optimized rendering using MaterialPropertyBlock and Shader.PropertyToID instead of runtime material instantiation",
+            "Developed a SaveManager and SaveSystem for lifecycle management and data persistence",
+            "Created an anti-clustering EnemySpawner to prevent overlapping enemy spawns",
+            "Structured the project using Assembly Definitions and namespaces, custom Editor tools, and dynamic input detection",
+        ],
+        links: [
+        { text: "GitHub", url: "https://github.com/cpugaper/Bouncy-Bullets", icon: "fab fa-github" },
+        { text: "Itch.io", url: "https://pupecarla.itch.io/bouncy-bullets", icon: "fa-brands fa-itch-io" }
+        ],
+        year: "2026"
     }
 };
 
@@ -206,7 +237,7 @@ function openModal(projectId) {
     responsibilitiesTitle.style.color = '#f0e6d2';
     responsibilitiesTitle.style.marginBottom = '1rem';
     responsibilitiesTitle.style.fontSize = '1.8rem';
-    responsibilitiesTitle.textContent = (projectId === 'game4') ? 'Features Implemented' : 'Key Contributions';
+    responsibilitiesTitle.textContent = (projectId === 'game4' || projectId === 'game5') ? 'Features Implemented' : 'Key Contributions';
     
     const tasksList = document.createElement('ul');
     tasksList.style.color = '#b0b0b0';
@@ -223,63 +254,38 @@ function openModal(projectId) {
     responsibilitiesSection.appendChild(responsibilitiesTitle);
     responsibilitiesSection.appendChild(tasksList);
  
-    const githubLink = document.createElement('div');
-    githubLink.style.marginTop = '1.5rem';
-    githubLink.style.textAlign = 'center';
-    githubLink.style.fontSize = '1.1rem';
+    const linksContainer = document.createElement('div');
+    linksContainer.style.marginTop = '2rem';
+    linksContainer.style.display = 'flex';
+    linksContainer.style.justifyContent = 'center';
+    linksContainer.style.gap = '1rem';
+    linksContainer.style.flexWrap = 'wrap';
 
-    const textBefore = document.createElement('span');
-    textBefore.style.color = '#f0e6d2';
+    if (project.links && project.links.length > 0) {
+        project.links.forEach(linkData => {
+            const btnLink = document.createElement('a');
+            btnLink.href = linkData.url;
+            btnLink.target = '_blank';
+            btnLink.className = 'project-modal-btn';
 
-    const projectLink = document.createElement('a');
-    projectLink.href = project.link;
-    projectLink.target = '_blank';
-    projectLink.style.color = '#d4b483';
-    projectLink.style.textDecoration = 'none';
-    projectLink.style.fontWeight = 'bold';
-    projectLink.style.transition = 'color 0.3s ease';
-    projectLink.style.display = 'inline-flex';
-    projectLink.style.alignItems = 'center';
-    projectLink.style.gap = '0.3rem';
+            const iconEl = document.createElement('i');
+            iconEl.className = linkData.icon;
+            
+            const spanEl = document.createElement('span');
+            spanEl.textContent = linkData.text; 
 
-    const projectName = document.createElement('span');
-    projectName.textContent = project.title;
-
-    const externalLinkIcon = document.createElement('i');
-    externalLinkIcon.className = 'fas fa-external-link-alt';
-    externalLinkIcon.style.fontSize = '0.8rem';
-    externalLinkIcon.style.opacity = '0.8';
-
-    projectLink.appendChild(projectName);
-    projectLink.appendChild(externalLinkIcon);
-
-    projectLink.addEventListener('mouseover', function() { this.style.color = '#f0e6d2'; });
-    projectLink.addEventListener('mouseout', function() { this.style.color = '#d4b483'; });
-
-    const textAfter = document.createElement('span');
-    textAfter.style.color = '#f0e6d2';
-
-    if (projectId == 'game3') {
-        textBefore.textContent = 'Play ';
-        textAfter.textContent = ' on itch.io';
-    } else if (projectId == 'game4') {
-        textBefore.textContent = 'Visit the ';
-        textAfter.textContent = ' Website';
-    } else {
-        textBefore.textContent = 'Read more about ';
-        textAfter.textContent = ' on Github';
+            btnLink.appendChild(iconEl);
+            btnLink.appendChild(spanEl);
+            linksContainer.appendChild(btnLink);
+        });
     }
-
-    githubLink.appendChild(textBefore);
-    githubLink.appendChild(projectLink);
-    githubLink.appendChild(textAfter);
 
     modalContent.appendChild(titleElement);
     modalContent.appendChild(imgElement);
     modalContent.appendChild(infoContainer);
     modalContent.appendChild(responsibilitiesSection);
-    modalContent.appendChild(githubLink);
-
+    modalContent.appendChild(linksContainer);
+   
     if (window.innerWidth <= 768) {
         infoContainer.style.gridTemplateColumns = '1fr';
         infoContainer.style.gap = '1.5rem';
