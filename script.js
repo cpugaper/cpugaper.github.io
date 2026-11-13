@@ -91,7 +91,7 @@ const projectData = {
         programmingLanguage: "C++",
         teamSize: "1",
         duration: "10 months",
-        role: "Technical Artist",
+        role: "Programmer & Technical Artist",
         tasks: [
             "Implemented Mendelian genetic logic in C++ for dominant and recessive trait inheritance",
             "Developed runtime facial generation in UE5 using segmented morph target interpolation",
