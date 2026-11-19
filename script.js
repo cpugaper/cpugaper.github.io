@@ -113,7 +113,7 @@ const projectData = {
         duration: "2 months",
         role: "Programmer & Designer",
         tasks: [
-            "Implemented an Asset-based Observer Pattern using ScriptableObjects for decoupled event communication",
+            "Implemented ScriptableObject event channels (Observer Pattern) and shared runtime references to decouple gameplay systems",
             "Applied Object Pooling for enemies, bullets, explosions, and pickups",
             "Optimized rendering using MaterialPropertyBlock and Shader.PropertyToID instead of runtime material instantiation",
             "Developed a SaveManager and SaveSystem for lifecycle management and data persistence",
